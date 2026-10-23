@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Discos</title>
+    <script defer src="form1.js"></script>
+</head>
+<body>
+    <h1>Formulario de discos</h1>
+
+    <form name="formulario" id="formulario" action="#" method="post" onsubmit="mostrarDisco(event)">
+        <label>Nombre del Disco</label>
+            <input type="text" name="disco" id="disco"><br>
+        <label>Grupo de musica o cantante</label>
+            <input type="text" name="grupoCantante" id="grupoCantante"><br>
+        <label>Año de publicación</label>
+            <input type="number" name="agnoPub" id="agnoPub"><br>
+        <label>Tipo de musica (rock, pop, punk o indie)</label><br>
+            <select name="genero" id="genero">
+                <option value="---">---</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="punk">Punk</option>
+                <option value="indie">Indie</option>
+            </select><br>
+
+        <label>Localización</label> <!-- Un numero de estanteria-->
+            <input type="number" name="localizacion" id="localizacion"><br>
+
+        <label>Prestado</label> <!-- Por defecto false-->
+            <input type="checkbox" name="prestado" id="prestado"><br>
+            <button type="submit" name="enviar" >Enviar</button>
+    </form>
+</body>
+</html>
