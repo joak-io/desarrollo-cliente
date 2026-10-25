@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script defer src="ej9.js"></script>
 </head>
 <body>
     <h1>Lista de tareas</h1>
-    <input type="text" id="tareas" placeholder="Introduce una tarea">
+    <input type="text" id="tareas">
     
     
+    <br>
+    <input type="button" value="Agregar a la Lista" onclick="agregarAlArray();">
+    <input type="button" value="Renderizar Lista" onclick="renderizarLista();">
+    <input type="button" value="Ordenar Lista Alfabéticamente" onclick="ordenarAlfab();">
 
-    <button>Añadir </button>
-    <button>Renderizar Lista</button>
-    <button> Ordenar </button>
+    <ul id="lista">
+ 
+    </ul>
+
 </body>
 </html>
