@@ -13,9 +13,10 @@ class CuentaBancaria{
     //Setter
     set setTitular(titularNuevo){
         console.log("hola");
-        if(titularNuevo != ""){
+        if(titularNuevo != "" && titularNuevo.trim().length>0){
             this.titular=titularNuevo;
-        }else{
+        }
+        else{
             console.log("Debes introducir un nombre que no este vacio");
         }
     }
@@ -37,5 +38,5 @@ class CuentaBancaria{
 
 let miCuenta = new CuentaBancaria ("Ana Perez");
 console.log(miCuenta.getSaldo);
-miCuenta="";
+miCuenta.setTitular=" ";
 console.log(miCuenta);
