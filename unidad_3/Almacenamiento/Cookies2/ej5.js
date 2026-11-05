@@ -1,0 +1,1 @@
+document.cookie = "error=; max-age=0";
