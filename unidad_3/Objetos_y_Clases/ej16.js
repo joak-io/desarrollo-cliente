@@ -9,7 +9,7 @@ class CuentaBancaria{
     depositar(cantidad){ 
         this.saldo+=cantidad;
     }
-
+s
     retirar(cantidad){
         let retiroExitoso=true;
         if(this.saldo>cantidad){
