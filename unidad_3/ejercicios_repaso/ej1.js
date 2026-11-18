@@ -22,7 +22,7 @@ let pedidos = [
 
 function aplicarDescuento(total, porcentaje = 10){
     let descontado;
-    return  descontado = total - (porcentaje / 100);
+    return  descontado = total * porcentaje / 100;
 };
 
 const calcularTotalPedido = function (impuesto, ...precios) {
@@ -30,19 +30,27 @@ const calcularTotalPedido = function (impuesto, ...precios) {
     return total += total*(impuesto / 100);
 };
 
+
+const IMPUESTO = 21;
+
 function procesarLotePedidos(listaPedidos, callbackCalculo, callbackDescuento){
-    let totalPedido;
-    let total = 0;
-    for(pedido of pedidos){
-            totalPedido = callbackCalculo(21, ...(pedido.items));
-            if (pedido.urgente == false){
-                totalPedido = callbackDescuento(totalPedido);
-            }
-        total += totalPedido;
-       }
-    return total;
+    let resultados = [];
+
+    for (let i = 0; i < listaPedidos.length; i++) {
+        let pedido = listaPedidos[i];
+        let total = callbackCalculo(IMPUESTO, ...pedido.items);  
+        if (pedido.urgente !== true)  {
+            total = callbackDescuento(total);
+        }
+        resultados.push({ id: pedido.id, cliente: pedido.cliente, total: total });
+    }
+
+    return resultados;
 };
 
-console.log(procesarLotePedidos(pedidos, calcularTotalPedido, aplicarDescuento));
+const resultados = procesarLotePedidos(pedidos, calcularTotalPedido, aplicarDescuento);
 
-let pedidosCien = pedidos.filter(() => );
+const informe = resultados.filter(r => r.total > 100).map(
+    r => "Pedido " + r.id + " de " + r.cliente + ": " + r.total.toFixed(2) + " €");
+
+console.log(informe);
